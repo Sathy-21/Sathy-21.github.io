@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sathwik Yarlagadda | Portfolio</title>
+<meta name="description" content="Sathwik Yarlagadda is a computer science student at the University of Central Florida and co-founder of HireBuddy, an AI recruiting startup.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FFC904'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='30' text-anchor='middle' fill='%23172033'%3ESY%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F6F9;
+    --surface: #FFFFFF;
+    --ink: #172033;
+    --slate: #546072;
+    --rule: #D6DBE3;
+    --gold: #FFC904;
+    --gold-wash: #FFF3BF;
+
+    --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Literata", Georgia, "Times New Roman", serif;
+
+    --wrap: 72rem;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  a:hover { text-decoration-color: var(--gold); text-decoration-thickness: 3px; }
+
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  .visually-hidden {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  .skip-link {
+    position: absolute; left: 1rem; top: -4rem; z-index: 10;
+    background: var(--ink); color: var(--surface); padding: 0.6rem 1rem;
+    font-family: var(--sans); font-weight: 700; text-decoration: none;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 5;
+    background: rgba(244, 246, 249, 0.94);
+    backdrop-filter: saturate(1.4) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    min-height: 4.25rem;
+  }
+  .wordmark {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    font-family: var(--sans); font-weight: 700; font-size: 1.05rem;
+    text-decoration: none; letter-spacing: -0.01em;
+  }
+  .wordmark-mark {
+    display: grid; place-items: center; width: 2rem; height: 2rem;
+    background: var(--gold); color: var(--ink);
+    font-weight: 800; font-size: 0.8rem; letter-spacing: 0.02em;
+  }
+  .site-nav ul { display: flex; gap: clamp(0.9rem, 2.5vw, 2rem); list-style: none; margin: 0; padding: 0; }
+  .site-nav a {
+    font-family: var(--sans); font-weight: 500; font-size: 0.98rem;
+    text-decoration: none; padding: 0.35rem 0; border-bottom: 3px solid transparent;
+  }
+  .site-nav a:hover { border-bottom-color: var(--rule); }
+  .site-nav a[aria-current="page"] { border-bottom-color: var(--gold); font-weight: 700; }
+
+  /* ---------- Shared type ---------- */
+  .section-title {
+    font-family: var(--sans); font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.1rem);
+    line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 1.75rem;
+  }
+  .section-title:focus { outline: none; }
+  .subhead {
+    font-family: var(--sans); font-weight: 700; font-size: 1.2rem; line-height: 1.3;
+    letter-spacing: -0.01em; margin: 0 0 0.35rem;
+  }
+  .meta { font-family: var(--sans); font-size: 0.95rem; color: var(--slate); margin: 0; line-height: 1.5; }
+
+  section.block { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--rule); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 4.5rem); }
+  .hero-grid {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .hero-name {
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(2.6rem, 7.2vw, 5.4rem); line-height: 0.98; letter-spacing: -0.035em;
+    margin: 0 0 1.5rem;
+  }
+  .hero-name:focus { outline: none; }
+  .hero-lead {
+    font-family: var(--serif); font-size: clamp(1.3rem, 2.3vw, 1.65rem); line-height: 1.45;
+    max-width: 36ch; margin: 0 0 2.25rem;
+  }
+  .facts { display: grid; grid-template-columns: max-content 1fr; align-items: baseline; gap: 0.55rem 1.5rem; margin: 0 0 2.5rem; max-width: 40rem; }
+  .facts dt { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; }
+  .facts dd { margin: 0; font-family: var(--sans); font-size: 1.02rem; line-height: 1.45; color: var(--ink); }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--sans); font-weight: 700; font-size: 0.98rem; line-height: 1;
+    padding: 0.85rem 1.2rem; text-decoration: none; cursor: pointer;
+    border: 2px solid var(--ink); background: transparent; color: var(--ink);
+  }
+  .btn:hover { background: var(--surface); text-decoration: none; }
+  .btn-primary { background: var(--ink); color: var(--surface); }
+  .btn-primary:hover { background: #26324A; }
+  .btn svg { width: 1.05rem; height: 1.05rem; flex: none; }
+
+  .portrait {
+    width: clamp(9rem, 18vw, 14rem); aspect-ratio: 4 / 5;
+    background: var(--gold); position: relative; overflow: hidden;
+  }
+  .portrait-initials {
+    position: absolute; left: 0.9rem; bottom: 0.55rem;
+    font-family: var(--sans); font-weight: 800; font-size: clamp(3rem, 6vw, 4.6rem);
+    line-height: 1; letter-spacing: -0.04em; color: var(--ink);
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- Annotated prose (the margin-note system) ---------- */
+  .annotated {
+    display: grid;
+    grid-template-columns: minmax(0, 39rem) minmax(13rem, 17rem);
+    column-gap: clamp(2rem, 5vw, 4.5rem);
+    row-gap: 1.4rem;
+    align-items: start;
+  }
+  .annotated > p { grid-column: 1; margin: 0; }
+  .annotated > .notes { grid-column: 2; }
+
+  .notes { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
+  .note {
+    display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.7rem; align-items: start;
+    font-family: var(--sans); font-size: 0.9rem; line-height: 1.5; color: var(--slate);
+    padding: 0.5rem 0.6rem 0.5rem 0; margin-left: -0.6rem; padding-left: 0.6rem;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+  .note.is-lit { background: var(--gold-wash); color: var(--ink); }
+  .note-num, .ref {
+    display: inline-grid; place-items: center;
+    width: 1.5rem; height: 1.5rem;
+    background: var(--gold); color: var(--ink);
+    font-family: var(--sans); font-weight: 700; font-size: 0.78rem; line-height: 1;
+  }
+  .note a { color: inherit; }
+
+  .ref {
+    border: 0; padding: 0; margin: 0 0.1em 0 0.15em; cursor: pointer;
+    width: 1.3rem; height: 1.3rem; font-size: 0.72rem;
+    vertical-align: 0.35em;
+  }
+  .ref:hover, .ref.is-lit { background: var(--ink); color: var(--gold); }
+
+  /* Desktop with JS: notes float in the margin beside their marker. */
+  .annotated.is-floating {
+    display: block; position: relative;
+    --note-w: clamp(13rem, 22vw, 17rem);
+    padding-right: calc(var(--note-w) + clamp(2rem, 5vw, 4.5rem));
+  }
+  .annotated.is-floating > p { max-width: 39rem; margin: 0 0 1.4rem; }
+  .annotated.is-floating > p:last-of-type { margin-bottom: 0; }
+  .annotated.is-floating > .notes { display: block; }
+  .annotated.is-floating .note { position: absolute; right: 0; width: var(--note-w); margin: 0; }
+
+  /* ---------- Experience timeline ---------- */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .role {
+    display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 0 clamp(1.5rem, 4vw, 3rem);
+    padding: 1.75rem 0; border-top: 1px solid var(--rule);
+  }
+  .role:first-child { border-top: 0; padding-top: 0; }
+  .role-when { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; line-height: 1.45; padding-top: 0.15rem; }
+  .role-when span { display: block; font-weight: 400; color: var(--slate); }
+  .role-body { max-width: 44rem; }
+  .role-body .meta { margin-bottom: 0.9rem; }
+  .role-points { margin: 0; padding-left: 1.1rem; }
+  .role-points li { margin: 0 0 0.45rem; padding-left: 0.3rem; }
+  .role-points li::marker { color: var(--slate); }
+
+  /* ---------- Education + skills ---------- */
+  .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(2.5rem, 6vw, 5rem); }
+  .course-list { margin: 1rem 0 0; padding-left: 1.1rem; }
+  .course-list li { margin-bottom: 0.3rem; padding-left: 0.3rem; }
+  .skills { display: grid; grid-template-columns: max-content 1fr; gap: 0.9rem 1.5rem; margin: 0; }
+  .skills dt { font-family: var(--sans); font-weight: 700; font-size: 0.98rem; line-height: 1.6; }
+  .skills dd { margin: 0; line-height: 1.6; }
+
+  /* ---------- Projects ---------- */
+  .page-intro { max-width: 40rem; margin: 0 0 2.5rem; }
+  .project {
+    display: grid; grid-template-columns: minmax(0, 39rem) minmax(13rem, 17rem);
+    column-gap: clamp(2rem, 5vw, 4.5rem); row-gap: 1rem;
+    padding: 2.25rem 0; border-top: 1px solid var(--rule);
+  }
+  .project-main p { margin: 0.6rem 0 0; }
+  .project .stack { font-family: var(--sans); font-size: 0.95rem; color: var(--slate); line-height: 1.5; }
+  .project .proj-link { font-family: var(--sans); font-weight: 700; font-size: 0.98rem; }
+  .proof {
+    font-family: var(--sans); font-size: 0.95rem; line-height: 1.5; color: var(--ink);
+    border-left: 6px solid var(--gold); padding: 0.2rem 0 0.2rem 1rem; margin: 0.35rem 0 0;
+    align-self: start;
+  }
+
+  /* ---------- Course portfolio ---------- */
+  .materials { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 4rem); }
+  .material-list { list-style: none; margin: 1rem 0 0; padding: 0; }
+  .material-list li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+    padding: 1rem 0; border-top: 1px solid var(--rule);
+  }
+  .material-list li:last-child { border-bottom: 1px solid var(--rule); }
+  .material-title { font-family: var(--sans); font-weight: 700; font-size: 1.05rem; }
+  .material-status { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--slate); }
+
+  /* ---------- Contact / footer ---------- */
+  .site-footer { background: var(--ink); color: var(--surface); padding: clamp(3rem, 7vw, 5rem) 0 2.5rem; }
+  .site-footer a { color: var(--surface); }
+  .site-footer .section-title { color: var(--surface); }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+  .contact-lead { max-width: 30rem; margin: 0; color: #DCE1EA; }
+  .contact-list { list-style: none; margin: 0; padding: 0; font-family: var(--sans); }
+  .contact-list li { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding: 0.85rem 0; border-top: 1px solid #34405A; align-items: baseline; }
+  .contact-list li:last-child { border-bottom: 1px solid #34405A; }
+  .contact-label { font-weight: 700; color: var(--gold); font-size: 0.95rem; }
+  .contact-value { font-size: 1.02rem; word-break: break-word; }
+  .copy-btn {
+    margin-left: 0.75rem; font: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer;
+    background: transparent; color: var(--surface); border: 1px solid #5A6782; padding: 0.2rem 0.55rem;
+  }
+  .copy-btn:hover { border-color: var(--gold); }
+  .copy-btn:focus-visible, .site-footer :focus-visible { outline-color: var(--gold); }
+  .fineprint { font-family: var(--sans); font-size: 0.85rem; color: #A9B3C4; margin: 3.5rem 0 0; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 920px) {
+    .annotated, .project { grid-template-columns: minmax(0, 1fr); }
+    .annotated > .notes, .annotated > p { grid-column: 1; }
+    .annotated > .notes { margin: -0.4rem 0 0.6rem; padding-left: 0.6rem; border-left: 1px solid var(--rule); }
+    .two-col, .materials, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 680px) {
+    body { font-size: 1.0625rem; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 0.35rem; padding: 0.75rem 0; min-height: 0; }
+    .site-nav ul { gap: 1.1rem; flex-wrap: wrap; }
+    .site-header { position: static; }
+    .hero-grid { grid-template-columns: minmax(0, 1fr); }
+    .portrait { order: -1; width: 7rem; }
+    .portrait-initials { font-size: 2.6rem; left: 0.6rem; }
+    .facts { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .facts dd { margin-bottom: 0.8rem; }
+    .role { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+    .skills { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+    .skills dd { margin-bottom: 0.8rem; }
+    .contact-list li { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-skip>Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="#about"><span class="wordmark-mark" aria-hidden="true">SY</span>Sathwik Yarlagadda</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#about" data-nav="about">About</a></li>
+        <li><a href="#projects" data-nav="projects">Projects</a></li>
+        <li><a href="#contact" data-contact>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== ABOUT (home) ===================== -->
+  <div data-view="about">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1 class="hero-name" tabindex="-1" data-focus>Sathwik Yarlagadda</h1>
+          <p class="hero-lead">Computer science student at UCF and co-founder of HireBuddy, an AI recruiting startup. I build software that real people depend on, and I like being able to prove it works.</p>
+          <dl class="facts">
+            <dt>Studying</dt><dd>B.S. in Computer Science, University of Central Florida, May 2028</dd>
+            <dt>Building</dt><dd>Talent Scout, HireBuddy&rsquo;s AI candidate-sourcing platform</dd>
+            <dt>Next</dt><dd>AI Engineer Intern at Raymond James, summer 2027</dd>
+          </dl>
+          <ul class="actions">
+            <li><a class="btn btn-primary" href="mailto:sa849475@ucf.edu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg>Email me</a></li>
+            <li><a class="btn" href="https://www.linkedin.com/in/sathwik-yarlagadda" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.76v5.69h-4v-5.04c0-1.2-.02-2.75-1.73-2.75-1.73 0-2 1.3-2 2.66v5.13h-4v-11Z"/></svg>LinkedIn</a></li>
+            <li><a class="btn" href="https://github.com/Sathy-21" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>GitHub</a></li>
+          </ul>
+        </div>
+        <!-- To use a headshot: replace the span below with
+             <img src="data:image/jpeg;base64,..." alt="Sathwik Yarlagadda"> -->
+        <div class="portrait" aria-hidden="true"><span class="portrait-initials">SY</span></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="about-title">
+      <div class="wrap">
+        <h2 class="section-title" id="about-title">About me</h2>
+        <div class="annotated">
+          <p>I&rsquo;m a junior at the University of Central Florida studying computer science<button class="ref" type="button" data-ref="1" aria-describedby="note-1"><span class="visually-hidden">Note </span>1</button>. My coursework runs from data structures and algorithms down to the hardware&nbsp;&mdash; systems software, assembly language, pipelining, and caches&nbsp;&mdash; and I&rsquo;ve rounded it out with statistics, biology, and technical writing.</p>
+          <ul class="notes">
+            <li class="note" id="note-1" data-note="1"><span class="note-num" aria-hidden="true">1</span><span>B.S. in Computer Science, expected May 2028, with a 3.5 GPA.</span></li>
+          </ul>
+
+          <p>Most of what I know about software, I learned by shipping it. I joined HireBuddy, an AI recruiting startup, as an AI engineering intern, became its founding engineer, and am now a co-founder. I build Talent Scout, the tool our customers use to find candidates. I&rsquo;ve fixed searches that were coming back empty<button class="ref" type="button" data-ref="2" aria-describedby="note-2"><span class="visually-hidden">Note </span>2</button>, led a security audit of the platform<button class="ref" type="button" data-ref="3" aria-describedby="note-3"><span class="visually-hidden">Note </span>3</button>, and presented the product to more than 200 people at a talent acquisition conference<button class="ref" type="button" data-ref="4" aria-describedby="note-4"><span class="visually-hidden">Note </span>4</button>.</p>
+          <ul class="notes">
+            <li class="note" id="note-2" data-note="2"><span class="note-num" aria-hidden="true">2</span><span>Traced them to over-strict query logic and inconsistent country names, then rebuilt search to rank partial matches instead of dropping them.</span></li>
+            <li class="note" id="note-3" data-note="3"><span class="note-num" aria-hidden="true">3</span><span>Added authentication to 8 unprotected AI endpoints, closed 5 access-control vulnerabilities, and removed personal data from server logs.</span></li>
+            <li class="note" id="note-4" data-note="4"><span class="note-num" aria-hidden="true">4</span><span>Talent Acquisition Week, July 2026. HireBuddy was a Premier Sponsor, and I gave the company&rsquo;s presentation.</span></li>
+          </ul>
+
+          <p>Before HireBuddy, I was a student researcher at UCF applying genetic algorithms to semiconductor optimization. Next summer I join Raymond James as an AI Engineer Intern<button class="ref" type="button" data-ref="5" aria-describedby="note-5"><span class="visually-hidden">Note </span>5</button>.</p>
+          <ul class="notes">
+            <li class="note" id="note-5" data-note="5"><span class="note-num" aria-hidden="true">5</span><span>Risk Management Technology team, St. Petersburg, Florida.</span></li>
+          </ul>
+
+          <p>Startup work taught me as much about people as about code. I&rsquo;ve run demos for prospective customers, onboarded new interns to our codebase, and learned to explain technical trade-offs to teammates who don&rsquo;t write software, all while staying on track for my degree. I work mostly in Python and TypeScript, and I&rsquo;ve built web apps, LLM agents, and a neural network from scratch<button class="ref" type="button" data-ref="6" aria-describedby="note-6"><span class="visually-hidden">Note </span>6</button>. Outside of work, you&rsquo;ll find me playing intramural basketball, running fantasy leagues with friends, or helping out with UCF&rsquo;s Indian Student Association, where I helped revise the organization&rsquo;s constitution.</p>
+          <ul class="notes">
+            <li class="note" id="note-6" data-note="6"><span class="note-num" aria-hidden="true">6</span><span>A hand-written autograd engine in pure Python that spots counterfeit banknotes with 98.5% accuracy. <a href="#projects">See projects</a></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="exp-title">
+      <div class="wrap">
+        <h2 class="section-title" id="exp-title">Experience</h2>
+        <ol class="timeline">
+          <li class="role">
+            <p class="role-when">Summer 2027<span>Incoming</span></p>
+            <div class="role-body">
+              <h3 class="subhead">AI Engineer Intern, Raymond James</h3>
+              <p class="meta">Risk Management Technology, St. Petersburg, FL</p>
+            </div>
+          </li>
+          <li class="role">
+            <p class="role-when">Present</p>
+            <div class="role-body">
+              <h3 class="subhead">Co-Founder, HireBuddy</h3>
+              <p class="meta">Previously Founding Engineer and AI Engineer Intern</p>
+              <ul class="role-points">
+                <li>Build Talent Scout, an AI candidate-sourcing platform used by recruiting teams.</li>
+                <li>Restored searches that returned zero results by restructuring query logic and normalizing location data across countries.</li>
+                <li>Led a security audit that secured 8 AI endpoints and closed 5 access-control vulnerabilities.</li>
+                <li>Shipped automated email outreach campaigns with personalized messages, multiple email providers, and reply detection.</li>
+                <li>Demoed the product to prospective customers and to 200+ attendees at Talent Acquisition Week 2026.</li>
+                <li>Onboard new engineering interns to the codebase and review their work.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="role">
+            <p class="role-when">2025&ndash;2026<span>Sept. to June</span></p>
+            <div class="role-body">
+              <h3 class="subhead">Student Researcher, University of Central Florida</h3>
+              <p class="meta">Orlando, FL</p>
+              <ul class="role-points">
+                <li>Applied genetic algorithms to semiconductor optimization problems.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" aria-label="Education and skills">
+      <div class="wrap two-col">
+        <div>
+          <h2 class="section-title">Education</h2>
+          <h3 class="subhead">University of Central Florida</h3>
+          <p class="meta">B.S. in Computer Science, expected May 2028. GPA 3.5.</p>
+          <ul class="course-list">
+            <li>Systems Software</li>
+            <li>Computer architecture (MIPS, pipelining, caches)</li>
+            <li>Data structures and algorithms</li>
+            <li>Statistics</li>
+            <li>Writing for the Technical Professional (ENC 3241)</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="section-title">Skills</h2>
+          <dl class="skills">
+            <dt>Languages</dt><dd>Python, TypeScript, JavaScript, C, SQL</dd>
+            <dt>Web</dt><dd>Next.js, React, Node.js, Express, FastAPI</dd>
+            <dt>Data and cloud</dt><dd>PostgreSQL, Supabase, Docker, Vercel, Git</dd>
+            <dt>AI and ML</dt><dd>LLM agents, retrieval-augmented generation, prompt engineering, PyTorch, SHAP</dd>
+            <dt>Professional</dt><dd>Product demos, public speaking, customer onboarding, technical writing</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <div data-view="projects">
+    <section class="block" style="border-top:0" aria-labelledby="projects-title">
+      <div class="wrap">
+        <h2 class="section-title" id="projects-title" tabindex="-1" data-focus>Projects</h2>
+        <p class="page-intro">Things I&rsquo;ve built outside my day job. Each one sits next to the number that shows whether it works.</p>
+
+        <article class="project">
+          <div class="project-main">
+            <h3 class="subhead">Knights Honest Housing</h3>
+            <p>A review site where UCF students rate apartments honestly. Reviewers verify with a UCF email address, but their reviews stay anonymous: identities live in a separate table that review records never point to. Students can rate, upload photos, and filter listings by price, location, and rating.</p>
+            <p class="stack">React, Vite, Node.js, Express, Supabase, Resend, Vercel</p>
+            <p><a class="proj-link" href="https://knightshonesthousing.com" target="_blank" rel="noopener">Visit knightshonesthousing.com</a></p>
+          </div>
+          <p class="proof">About 300 student users, with average response times around 169&nbsp;ms.</p>
+        </article>
+
+        <article class="project">
+          <div class="project-main">
+            <h3 class="subhead">Autonomous Research Agent</h3>
+            <p>An agent that answers a research question by planning sub-questions, searching the web, and writing a report with sources. A verification layer then checks each claim in the report against the source text and measures how much of the report is actually supported.</p>
+            <p class="stack">Python, Llama 3.3 70B on Groq, Tavily search, trafilatura</p>
+            <p><a class="proj-link" href="https://github.com/Sathy-21/research-agent" target="_blank" rel="noopener">View code on GitHub</a></p>
+          </div>
+          <p class="proof">68.7% of claims grounded in sources across a five-question benchmark, with zero fabricated claims.</p>
+        </article>
+
+        <article class="project">
+          <div class="project-main">
+            <h3 class="subhead">Neural network from scratch</h3>
+            <p>A small neural-network library written in pure Python, with every gradient computed by hand-derived chain-rule code, used to train a classifier that detects counterfeit banknotes. PyTorch appears only in the tests, as a check on my gradients.</p>
+            <p class="stack">Python, UCI Banknote Authentication dataset</p>
+            <p><a class="proj-link" href="https://github.com/Sathy-21/micrograd_banknote" target="_blank" rel="noopener">View code on GitHub</a></p>
+          </div>
+          <p class="proof">98.5% test accuracy, and it caught every forged note in a 274-note test set. Gradients match PyTorch to within 1e-9.</p>
+        </article>
+
+        <article class="project">
+          <div class="project-main">
+            <h3 class="subhead">Hospital admission prediction dashboard</h3>
+            <p>A model and dashboard that predict whether a patient will be admitted and explain each prediction with SHAP values. Synthetic patient records flow through a bronze, silver, and gold medallion pipeline before they reach the model.</p>
+            <p class="stack">Python, SHAP, Supabase, Palantir Foundry</p>
+          </div>
+          <p class="proof">AUROC of 0.81, with a per-patient explanation behind every prediction.</p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- COURSE PORTFOLIO: hidden until Project 4. To restore, uncomment this block,
+       add "portfolio" back to VIEWS in the script, and re-add the nav link.
+  <div data-view="portfolio">
+    <section class="block" style="border-top:0" aria-labelledby="portfolio-title">
+      <div class="wrap">
+        <h2 class="section-title" id="portfolio-title" tabindex="-1" data-focus>Course portfolio</h2>
+        <p class="page-intro">Major assignments from ENC 3241, Writing for the Technical Professional, at UCF. Each piece is posted here as it&rsquo;s finished.</p>
+        <div class="materials">
+          <div>
+            <h3 class="subhead">Professional materials</h3>
+            <ul class="material-list">
+              <li><span class="material-title">Resume</span><span class="material-status">Posting soon</span></li>
+              <li><span class="material-title">Cover letter</span><span class="material-status">Posting soon</span></li>
+              <li><span class="material-title">Mini interview</span><span class="material-status">Posting soon</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="subhead">Writing samples</h3>
+            <ul class="material-list">
+              <li><span class="material-title">Instructions</span><span class="material-status">Posting soon</span></li>
+              <li><span class="material-title">Proposal</span><span class="material-status">Posting soon</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  -->
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2 class="section-title" id="contact-title" tabindex="-1">Get in touch</h2>
+        <p class="contact-lead">I&rsquo;m glad to talk about internships, research, or a hard problem you&rsquo;re working on. Email is the fastest way to reach me.</p>
+      </div>
+      <ul class="contact-list">
+        <li><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:sa849475@ucf.edu">sa849475@ucf.edu</a><button class="copy-btn" type="button" data-copy="sa849475@ucf.edu">Copy</button></span></li>
+        <li><span class="contact-label">LinkedIn</span><span class="contact-value"><a href="https://www.linkedin.com/in/sathwik-yarlagadda" target="_blank" rel="noopener">linkedin.com/in/sathwik-yarlagadda</a></span></li>
+        <li><span class="contact-label">GitHub</span><span class="contact-value"><a href="https://github.com/Sathy-21" target="_blank" rel="noopener">github.com/Sathy-21</a></span></li>
+      </ul>
+    </div>
+    <p class="fineprint">&copy; 2026 Sathwik Yarlagadda. Built by hand in HTML and CSS.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var VIEWS = ['about', 'projects'];
+  var TITLES = { about: 'About', projects: 'Projects', portfolio: 'Course portfolio' };
+  var views = document.querySelectorAll('[data-view]');
+  var navLinks = document.querySelectorAll('[data-nav]');
+
+  function show(name, moveFocus) {
+    if (VIEWS.indexOf(name) === -1) name = 'about';
+    var active = null;
+    for (var i = 0; i < views.length; i++) {
+      var on = views[i].getAttribute('data-view') === name;
+      views[i].hidden = !on;
+      if (on) active = views[i];
+    }
+    for (var j = 0; j < navLinks.length; j++) {
+      if (navLinks[j].getAttribute('data-nav') === name) navLinks[j].setAttribute('aria-current', 'page');
+      else navLinks[j].removeAttribute('aria-current');
+    }
+    document.title = 'Sathwik Yarlagadda | ' + TITLES[name];
+    if (moveFocus && active) {
+      window.scrollTo(0, 0);
+      var target = active.querySelector('[data-focus]');
+      if (target) target.focus({ preventScroll: true });
+    }
+  }
+
+  window.addEventListener('hashchange', function () { show(location.hash.slice(1), true); });
+  show(location.hash.slice(1), false);
+
+  // Contact scrolls to the footer without changing the view.
+  var contactLink = document.querySelector('[data-contact]');
+  var contact = document.getElementById('contact');
+  contactLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    contact.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    document.getElementById('contact-title').focus({ preventScroll: true });
+  });
+
+  // Skip link focuses the current view's heading without touching the hash.
+  document.querySelector('[data-skip]').addEventListener('click', function (e) {
+    e.preventDefault();
+    var current = document.querySelector('[data-view]:not([hidden]) [data-focus]');
+    if (current) current.focus();
+  });
+
+  // Margin notes: light up a note and its marker together.
+  function light(n, on) {
+    var els = document.querySelectorAll('[data-ref="' + n + '"], [data-note="' + n + '"]');
+    for (var k = 0; k < els.length; k++) els[k].classList.toggle('is-lit', on);
+  }
+  var linked = document.querySelectorAll('[data-ref], [data-note]');
+  for (var m = 0; m < linked.length; m++) {
+    (function (el) {
+      var n = el.getAttribute('data-ref') || el.getAttribute('data-note');
+      el.addEventListener('mouseenter', function () { light(n, true); });
+      el.addEventListener('mouseleave', function () { light(n, false); });
+      if (el.hasAttribute('data-ref')) {
+        el.addEventListener('focus', function () { light(n, true); });
+        el.addEventListener('blur', function () { light(n, false); });
+        el.addEventListener('click', function () {
+          var note = document.getElementById('note-' + n);
+          var r = note.getBoundingClientRect();
+          if (r.top < 0 || r.bottom > window.innerHeight) {
+            note.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+          }
+          light(n, true);
+        });
+      }
+    })(linked[m]);
+  }
+
+  // Margin-note layout: on wide screens, set each note beside its marker,
+  // pushing it down only if it would overlap the note above.
+  var box = document.querySelector('.annotated');
+  var wideQuery = matchMedia('(min-width: 921px)');
+  function layoutNotes() {
+    if (!box || box.offsetParent === null) return;
+    var notes = box.querySelectorAll('.note');
+    var wide = wideQuery.matches;
+    box.classList.toggle('is-floating', wide);
+    if (!wide) {
+      for (var a = 0; a < notes.length; a++) notes[a].style.top = '';
+      box.style.minHeight = '';
+      return;
+    }
+    var boxTop = box.getBoundingClientRect().top;
+    var floor = 0;
+    for (var b = 0; b < notes.length; b++) {
+      var n = notes[b].getAttribute('data-note');
+      var ref = box.querySelector('[data-ref="' + n + '"]');
+      var want = ref.getBoundingClientRect().top - boxTop - 8;
+      var top = Math.max(want, floor);
+      notes[b].style.top = top + 'px';
+      floor = top + notes[b].offsetHeight + 14;
+    }
+    box.style.minHeight = floor + 'px';
+  }
+  window.addEventListener('resize', layoutNotes);
+  window.addEventListener('hashchange', layoutNotes);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutNotes);
+  window.addEventListener('load', layoutNotes);
+  layoutNotes();
+
+  // Copy email.
+  var copyBtn = document.querySelector('[data-copy]');
+  copyBtn.addEventListener('click', function () {
+    var value = copyBtn.getAttribute('data-copy');
+    function done(label) {
+      copyBtn.textContent = label;
+      setTimeout(function () { copyBtn.textContent = 'Copy'; }, 2000);
+    }
+    try {
+      navigator.clipboard.writeText(value).then(function () { done('Copied'); }, function () { done('Select to copy'); });
+    } catch (err) { done('Select to copy'); }
+  });
+})();
+</script>
+</body>
+</html>
